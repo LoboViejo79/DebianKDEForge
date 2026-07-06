@@ -185,7 +185,7 @@ def debian_track():
 
 def debian_label():
     if not is_debian():
-        return "Sistema no Debian"
+        return "Debian requerido"
     code = debian_codename() or "sin codename"
     track = debian_track()
     if track == "stable":
@@ -270,11 +270,10 @@ class Forge(QMainWindow):
         if root and not self.debian:
             QMessageBox.warning(
                 self,
-                "Sistema no Debian",
-                "Esta acción ejecutaría comandos de administrador pensados para Debian/APT.\n\n"
-                "En este sistema se bloqueó para que puedas revisar la interfaz sin modificar CachyOS."
+                "Debian requerido",
+                "Esta acción requiere Debian Stable o Debian Testing."
             )
-            self.log("\n[Acción bloqueada: comandos root/APT deshabilitados fuera de Debian]\n")
+            self.log("\n[Acción bloqueada: Debian requerido]\n")
             return
         full = cmd
         if root:
@@ -302,7 +301,7 @@ streaming, productividad, drivers propietarios, entornos de escritorio y migraci
 
 <h3>Antes de empezar</h3>
 <ul>
-  <li>Usar en Debian Stable o Debian Testing. En otros sistemas se abre en modo vista y se bloquean acciones APT/root.</li>
+  <li>Usar en Debian Stable o Debian Testing.</li>
   <li>Leer la salida de la terminal inferior antes de cerrar la app o reiniciar.</li>
   <li>Ejecutar una sola acción por vez y esperar a que termine.</li>
   <li>Hacer backup antes de cambiar repositorios, restaurar KDE o aplicar ajustes grandes.</li>
@@ -345,8 +344,6 @@ streaming, productividad, drivers propietarios, entornos de escritorio y migraci
     def make_install_tab(self):
         tab = QWidget(); lay = QVBoxLayout(tab)
         info_text = "Seleccioná paquetes APT y apps Flatpak. El programa verifica qué está instalado y muestra versión disponible."
-        if not self.debian:
-            info_text += " Modo vista: las acciones APT/root están bloqueadas fuera de Debian."
         info = QLabel(info_text)
         info.setWordWrap(True)
         lay.addWidget(info)
@@ -575,7 +572,8 @@ apt update
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    w = Forge(); w.show()
     if not is_debian():
-        QMessageBox.warning(w,"Sistema no Debian", "La app está pensada para Debian Stable o Debian Testing. Las acciones APT/root quedan bloqueadas fuera de Debian.")
+        QMessageBox.critical(None, "Debian requerido", "Debian KDE Forge está diseñado para ejecutarse en Debian Stable o Debian Testing.")
+        sys.exit(1)
+    w = Forge(); w.show()
     sys.exit(app.exec())

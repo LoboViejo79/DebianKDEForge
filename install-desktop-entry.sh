@@ -7,7 +7,7 @@ cp assets/debian-kde-forge.svg "$HOME/.local/share/icons/debian-kde-forge.svg"
 cat > "$HOME/.local/share/applications/debian-kde-forge.desktop" <<DESK
 [Desktop Entry]
 Name=Debian KDE Forge
-Comment=Configurar Debian 13 KDE Plasma para gaming, productividad y restauración KDE
+Comment=Configurar Debian Stable o Testing para escritorio, gaming, productividad y restauración KDE
 Exec=$(pwd)/autorun.sh
 Icon=$HOME/.local/share/icons/debian-kde-forge.svg
 Terminal=false

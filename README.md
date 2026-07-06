@@ -2,25 +2,46 @@
 
 Asistente gráfico para preparar Debian Stable o Debian Testing para uso diario, gaming, streaming, productividad, escritorios alternativos y migración de configuración KDE.
 
-## Uso rápido
+## Uso rápido en Debian
 
 ```bash
 chmod +x autorun.sh
 ./autorun.sh
 ```
 
-El autorun abre la aplicación si PyQt6 ya está disponible. No instala dependencias automáticamente.
+Si ya tenés PyQt6 instalado, el programa abre directamente.
 
-En Debian, si faltan dependencias mínimas, podés pedir la instalación explícitamente con:
+## Instalación recomendada en Debian
+
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+El instalador hace esto:
+
+- Instala dependencias mínimas: `python3`, `python3-pyqt6`, `policykit-1`, `pkexec` y `apt-utils`.
+- Crea una entrada en el menú de aplicaciones.
+- Deja listo el lanzador `./autorun.sh`.
+
+Después de instalar, podés abrirlo desde el menú como **Debian KDE Forge** o desde terminal:
+
+```bash
+./autorun.sh
+```
+
+## Instalación manual de dependencias en Debian
+
+Si preferís no usar `install.sh`, podés instalar solo las dependencias necesarias con:
 
 ```bash
 ./autorun.sh --install-deps
 ```
 
-En CachyOS/Arch, instalá PyQt6 con tu gestor de paquetes, por ejemplo:
+Después ejecutá:
 
 ```bash
-sudo pacman -S python-pyqt6
+./autorun.sh
 ```
 
 ## Funciones
@@ -102,13 +123,10 @@ La aplicación incluye una pestaña **Ayuda** con el resumen de uso, el orden re
 - ⚠️ No uses **Cambiar a Debian Testing/Forky** salvo que aceptes posibles roturas y sepas recuperarte.
 - ⚠️ No uses backports en Debian Testing; Testing ya trae paquetes más nuevos desde su propia rama.
 - ⚠️ No instales el driver NVIDIA propietario si tu GPU es AMD o Intel.
-- ⚠️ En CachyOS, Arch u otros sistemas que no sean Debian, la app se abre en modo vista y bloquea acciones APT/root.
 
 ## Advertencia
 
 La sección “Pasar a Testing” cambia repositorios del sistema. Es para usuarios que aceptan el riesgo de usar Debian Testing. Usá backup antes.
-
-En sistemas que no sean Debian, la app se abre en modo vista: permite revisar la interfaz, pero bloquea acciones de administrador pensadas para APT/Debian.
 
 ## Licencia
 
