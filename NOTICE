@@ -1,0 +1,23 @@
+Debian KDE Forge
+=================
+
+Original creator: Debian KDE Forge project author.
+
+This program is licensed under the GNU General Public License version 3 only
+(GPL-3.0-only). See LICENSE for the full license text.
+
+Attribution notice
+------------------
+
+When distributing modified versions, keep this NOTICE file, keep visible
+copyright/license notices, and clearly state that the version was modified.
+
+This attribution notice is intended to preserve author attribution under
+GPLv3 section 7(b). It does not add a non-commercial restriction.
+
+Important GPLv3 note
+--------------------
+
+GPLv3 allows redistribution for free or for a fee, as long as the license
+terms are respected. A "no selling" clause would be an additional restriction
+and would make the project no longer plain GPLv3.
