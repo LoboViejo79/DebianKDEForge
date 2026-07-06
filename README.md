@@ -1,6 +1,8 @@
 # Debian KDE Forge
 
-Asistente gráfico para preparar Debian Stable o Debian Testing para uso diario, gaming, streaming, productividad, escritorios alternativos y migración de configuración KDE.
+Asistente gráfico para instalar, configurar y optimizar Debian Stable o Debian Testing con escritorios, drivers, Flatpak, herramientas de gaming/productividad y backup de KDE Plasma.
+
+**Descripción breve:** Asistente gráfico para preparar Debian Stable o Testing con repositorios, drivers, escritorios, Flatpak, optimizaciones y backup/restauración KDE.
 
 ## Uso rápido en Debian
 
